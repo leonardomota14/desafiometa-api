@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 		http.authorizeRequests() //
-				.antMatchers("/api-docs", //
+				.antMatchers("/v2/api-docs", //
 						"/swagger-resources/**", //
 						"/swagger-ui.html", //
 						"/webjars/**", //

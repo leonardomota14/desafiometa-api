@@ -37,7 +37,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @RestController
 @RequestMapping("/pessoas")
-@Api(tags = { "Manutenção de pessoas" })
+@Api(tags = { "API Backend Pessoas" })
 @Transactional(rollbackFor = Exception.class)
 public class PessoaController {
 	
@@ -57,20 +57,9 @@ public class PessoaController {
 		return new Pessoa();
 	}
 	
-	@GetMapping("/buscar/{id}")
-	@ApiOperation(value = "Retorna um registro específico.")
-	@ApiResponses(value = { //
-	@ApiResponse(code = 200, message = "Indica que encontrou o registro no banco de dados"),
-	@ApiResponse(code = 204, message = "Indica que não encontrou o registro no banco de dados"), })
-	public ResponseEntity<PessoaDTO> buscar(//
-			@ApiParam(value = "Identificador do registro a ser exibido") //
-			@PathVariable final Integer id) {
-		return ResponseEntity.ok(
-				pessoaConverter.converterEntidadeParaDTO(pessoaService.retornarRegistro(id), retornaInstanciaDTO()).orElseThrow(null));
-	}
 	
-	@GetMapping("listar")
-	@ApiOperation(value = "Retorna uma lista de registros paginados.")
+	@GetMapping
+	@ApiOperation(value = "Retorna uma lista de pessoas paginados.")
 	@ApiResponses(value = { //
 	@ApiResponse(code = 200, message = "Indica que encontrou registro(s) no banco de dados"),
 	@ApiResponse(code = 204, message = "Indica que não encontrou nenhum registro no banco de dados"), })
@@ -86,8 +75,20 @@ public class PessoaController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PostMapping("/adicionar")
-	@ApiOperation(value = "Inclui um registro.")
+	@GetMapping("/{id}")
+	@ApiOperation(value = "Retorna um registro específico.")
+	@ApiResponses(value = { //
+			@ApiResponse(code = 200, message = "Indica que encontrou o registro no banco de dados"),
+			@ApiResponse(code = 204, message = "Indica que não encontrou o registro no banco de dados"), })
+	public ResponseEntity<PessoaDTO> buscar(//
+			@ApiParam(value = "Identificador do registro a ser exibido") //
+			@PathVariable final Integer id) {
+		return ResponseEntity.ok(
+				pessoaConverter.converterEntidadeParaDTO(pessoaService.retornarRegistro(id), retornaInstanciaDTO()).orElseThrow(null));
+	}
+
+	@PostMapping
+	@ApiOperation(value = "Insere uma pessoa.")
 	@ApiResponses(value = { //
 	@ApiResponse(code = 200, message = "Indica que o objeto persistido"),
 	@ApiResponse(code = 204, message = "Indica que não foi possível fazer a desserialização"),
@@ -108,7 +109,7 @@ public class PessoaController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(path = "/atualizar/{id}")
+	@PutMapping(path = "/{id}")
 	@ApiOperation(value = "Atualiza um registro no banco de dados.")
 	@ApiResponses(value = { //
 	@ApiResponse(code = 200, message = "Indica que o objeto foi atualizado"),
@@ -130,7 +131,7 @@ public class PessoaController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@DeleteMapping("/excluir/{id}")
+	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um registro do banco de dados.")
 	@ApiResponses(value = { //
 	@ApiResponse(code = 200, message = "Indica que o registro foi removido do banco de dados"),
