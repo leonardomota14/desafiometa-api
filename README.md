@@ -2,7 +2,7 @@
 ## Aplicação de cadastro de pessoas:
 
 ### DesafioMeta-API:
-	https://github.com/jessesampaio/desafiometa-api
+https://github.com/jessesampaio/desafiometa-api
 
  - Nome - obrigatório
  - Sexo
@@ -14,7 +14,7 @@
  - Obs: a data de cadastro e atualização dos dados devem ser armazenados.
 
 ### DesafioMeta-UI:
-	https://github.com/jessesampaio/desafiometa-ui
+https://github.com/jessesampaio/desafiometa-ui
 
 ## DesafioMeta-API:
 https://github.com/jessesampaio/desafiometa-api
