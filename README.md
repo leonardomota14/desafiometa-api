@@ -13,18 +13,17 @@ https://github.com/jessesampaio/desafiometa-api
  - CPF - obrigatório, deve ser validado (formato e não pode haver dois cadastros com mesmo cpf)
  - Obs: a data de cadastro e atualização dos dados devem ser armazenados.
 
-### DesafioMeta-UI:
+## DesafioMeta-UI (Frontend da aplicação):
 https://github.com/jessesampaio/desafiometa-ui
 
-## DesafioMeta-API:
+## DesafioMeta-API (Backend da aplicação):
 https://github.com/jessesampaio/desafiometa-api
 
 ## Documentação
-
 https://desafiometa-api.herokuapp.com/swagger-ui.html
 
-## Principais tecnologias:
 
+### Principais tecnologias:
 - [Java](https://www.java.com/pt_BR/)
 - [OpenJDK 11](https://openjdk.java.net/projects/jdk/11/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
